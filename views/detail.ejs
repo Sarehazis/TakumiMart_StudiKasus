@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Detail Pemain</title>
+  </head>
+  <body>
+    <div class="container mt-5 mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="images p-3">
+                  <div class="text-center p-4">
+                    <img
+                      src="<%= mart.foto %>"
+                      alt="Foto <%= mart.nama %>"
+                      width="250"
+                    />
+                  </div>
+                  <h1>Detail Makanan: <%= mart.nama %></h1>
+                  <p>Harga Makanan: <%= mart.harga %></p>
+                  <p>Detail: <%= mart.deskripsi %></p>
+                  <!-- Jika 'alert' didefinisikan, tampilkan -->
+                  <% if (typeof alert !== 'undefined') { %>
+                  <p>Alert: <%= alert %></p>
+                  <% } %>
+                  <a href="/homepage" class="btn btn-info">Back</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

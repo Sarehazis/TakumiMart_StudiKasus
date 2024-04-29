@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Homepage | Takumi mart</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark regular-shadow">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="/mart" class="btn btn-info">CRUD</a>
+        </form>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <h2 class="text-center">DATA PEMAIN TIMNAS</h2>
+      <div class="container mt-5">
+        <div class="row">
+          <% for(let i = 0; i < mart.length; i++){ %>
+          <div class="col-md-3">
+            <div class="card">
+              <img src="<%= mart[i].foto %>" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title"><%= mart[i].nama %></h5>
+                <p class="card-title">Harga: <%= mart[i].harga %></p>
+                <p class="card-title">Deskripsi: <%= mart[i].deskripsi %></p>
+                <a
+                  href="/mart/detail/<%= mart[i].id %>"
+                  class="btn btn-outline-primary btn-sm button-update"
+                  >Detail</a
+                >
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

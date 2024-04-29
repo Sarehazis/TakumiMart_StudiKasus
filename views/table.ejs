@@ -1,0 +1,87 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-8">
+            <button
+              type="button"
+              class="btn btn-info btn-sm"
+              data-toggle="modal"
+              data-target="#add-modal"
+            >
+              Add
+            </button>
+            <a href="" class="btn btn-info btn-sm">Detail Produk </a>
+          </div>
+          <div class="col-sm-4 mb-2">
+            <div class="search-box">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search&hellip;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <table
+        class="table table-striped table-hover table-bordered"
+        id="dataTable"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Kategori</th>
+            <th>Stock</th>
+            <th>Foto</th>
+            <th>Deskripsi</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < mart.length; i++){ %>
+          <tr>
+            <td><%= i +1 %></td>
+            <td><%= mart[i].nama %></td>
+            <td><%= mart[i].harga %></td>
+            <td><%= mart[i].kategori %></td>
+            <td><%= mart[i].stock %></td>
+            <td><a href="<%= mart[i].foto %>">"Lihat gambar</a></td>
+            <td><%= mart[i].deskripsi %></td>
+            <td class="text-center">
+              <form
+                action="/mart/<%= mart[i].id %>?_method=DELETE"
+                method="POST"
+              >
+                <a
+                  href="javascript:void()"
+                  class="btn btn-warning btn-sm button-update"
+                  data-id="<%= mart[i].id %>"
+                  data-nama="<%= mart[i].nama %>"
+                  data-harga="<%= mart[i].harga %>"
+                  data-kategori="<%= mart[i].kategori %>"
+                  data-stock="<%= mart[i].stock %>"
+                  data-foto="<%= mart[i].foto %>"
+                  data-foto="<%= mart[i].deskripsi %>"
+                  >Edit</a
+                >
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-sm"
+                  onclick="return confirm ('Apa kamu yakin ingin menghapus data?');"
+                >
+                  Delete
+                </button>
+                <a href="/mart/homepage" class="btn btn-info btn-sm">View</a>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
